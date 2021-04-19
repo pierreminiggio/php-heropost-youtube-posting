@@ -9,4 +9,4 @@ $args = $argv;
 array_shift($args);
 
 $executor = new JSExecutor();
-echo $executor->execute(...$args);
+var_dump($executor->execute(...$args));

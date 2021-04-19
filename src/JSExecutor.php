@@ -25,7 +25,7 @@ class JSExecutor
         string $videoFilePath
     ): ?string
     {
-        return shell_exec(
+        $res = shell_exec(
             $this->nodePath
             . ' '
             . __DIR__
@@ -47,5 +47,7 @@ class JSExecutor
             . ' '
             . escapeshellarg($videoFilePath)
         );
+
+        return $res !== null ? trim($res) : null;
     }
 }
