@@ -38,6 +38,26 @@ class PosterTest extends TestCase
     }
 
     /**
+     * @dataProvider provideGoodMessagesAndIds
+     */
+    public function testRecievedId(
+        string $executorMessage,
+        string $expectedId
+    ): void
+    {
+        $executor = $this->createMock(JSExecutor::class);
+        $executor->expects(self::once())->method('execute')->willReturn($executorMessage);
+        $poster = new Poster($executor);
+        self::assertSame($expectedId, $poster->post(
+            'login',
+            'password',
+            'channelId',
+            new YoutubeVideo('title', 'description', YoutubeCategoriesEnum::EDUCATION),
+            'test.mp4'
+        ));
+    }
+
+    /**
      * @return string[][]
      */
     public function provideMessagesAndExceptions(): array
@@ -98,6 +118,23 @@ class PosterTest extends TestCase
             [
                 'Heropost/Youtube error : Video link not found ?',
                 MaybeAlreadyPostedButScrapingException::class
+            ],
+            [
+                'zizi',
+                MaybeAlreadyPostedButScrapingException::class
+            ]
+        ];
+    }
+
+    /**
+     * @return string[][]
+     */
+    public function provideGoodMessagesAndIds(): array
+    {
+        return [
+            [
+                'https://www.youtube.com/watch?v=11GAfiiJuZ0',
+                '11GAfiiJuZ0'
             ]
         ];
     }

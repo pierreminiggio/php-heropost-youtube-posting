@@ -10,7 +10,8 @@
     ],
     "minimum-stability": "dev",
     "require": {
-        "php": ">=8.0.0"
+        "php": ">=8.0.0",
+        "pierreminiggio/youtube-video-id-from-link": "dev-main"
     },
     "autoload": {
         "psr-4": {

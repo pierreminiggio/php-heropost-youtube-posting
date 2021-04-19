@@ -8,12 +8,17 @@ use PierreMiniggio\HeropostYoutubePosting\Exception\HeropostConfigurationExcepti
 use PierreMiniggio\HeropostYoutubePosting\Exception\QuotaExceededException;
 use PierreMiniggio\HeropostYoutubePosting\Exception\ScrapingException;
 use PierreMiniggio\HeropostYoutubePosting\Exception\UnknownHeropostException;
+use PierreMiniggio\YoutubeVideoIdFromLink\BadLinkException;
+use PierreMiniggio\YoutubeVideoIdFromLink\YoutubeIdGetter;
 
 class Poster
 {
 
+    private YoutubeIdGetter $youtubeIdGetter;
+
     public function __construct(private JSExecutor $executor)
     {
+        $this->youtubeIdGetter = new YoutubeIdGetter();
     }
 
     /**
@@ -21,6 +26,8 @@ class Poster
      * @throws HeropostConfigurationException
      * @throws UnknownHeropostException
      * @throws ScrapingException
+     *
+     * @return string youtubeVideoId
      */
     public function post(
         string $heropostLogin,
@@ -64,6 +71,10 @@ class Poster
             throw new MaybeAlreadyPostedButScrapingException($res);
         }
         
-        return '';
+        try {
+            return $this->youtubeIdGetter->get($res);
+        } catch (BadLinkException $e) {
+            throw new MaybeAlreadyPostedButScrapingException($e->getMessage());
+        }
     }
 }

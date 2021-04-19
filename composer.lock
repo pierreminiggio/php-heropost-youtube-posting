@@ -4,8 +4,50 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "8154de04851fed77ebd00b2bc28237b4",
-    "packages": [],
+    "content-hash": "ad5f0d89e88740c19e1006c38d6c0810",
+    "packages": [
+        {
+            "name": "pierreminiggio/youtube-video-id-from-link",
+            "version": "dev-main",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/pierreminiggio/php-youtube-video-id-from-link.git",
+                "reference": "b730d019e031b0e322a98d0c5b85733f58f2d70e"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/pierreminiggio/php-youtube-video-id-from-link/zipball/b730d019e031b0e322a98d0c5b85733f58f2d70e",
+                "reference": "b730d019e031b0e322a98d0c5b85733f58f2d70e",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=7.4.0"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "10.0.x-dev"
+            },
+            "default-branch": true,
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "PierreMiniggio\\YoutubeVideoIdFromLink\\": "src/",
+                    "PierreMiniggio\\YoutubeVideoIdFromLinkTest\\": "tests/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "authors": [
+                {
+                    "name": "Pierre MINIGGIO",
+                    "email": "pierre@miniggiodev.fr"
+                }
+            ],
+            "support": {
+                "issues": "https://github.com/pierreminiggio/php-youtube-video-id-from-link/issues",
+                "source": "https://github.com/pierreminiggio/php-youtube-video-id-from-link/tree/1.0.0"
+            },
+            "time": "2021-04-18T22:21:37+00:00"
+        }
+    ],
     "packages-dev": [
         {
             "name": "doctrine/inflector",
@@ -2747,6 +2789,7 @@
     "aliases": [],
     "minimum-stability": "dev",
     "stability-flags": {
+        "pierreminiggio/youtube-video-id-from-link": 20,
         "phpunit/phpunit": 20,
         "illuminate/support": 20
     },
