@@ -12,6 +12,9 @@ class JSExecutor
     {
     }
 
+    /**
+     * @see YoutubeCategoriesEnum for $youtubeCategoryId
+     */
     public function execute(
         string $heropostLogin,
         string $herpostPassword,

@@ -19,7 +19,8 @@
         }
     },
     "require-dev": {
-        "phpunit/phpunit": "10.0.x-dev"
+        "phpunit/phpunit": "10.0.x-dev",
+        "illuminate/support": "9.x-dev"
     },
     "scripts": {
         "post-install-cmd": [
